@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7318791-9c1c-486f-b0f4-e08e23359e4b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/01_3_point_1,5_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/02_9_point_0,7_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/03_3_point_0,5_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/04_8_point_0,7_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/05_4_point_0,6_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/06_6_point_0,7_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/07_6_point_1,3_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/08_4_point_1,4_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/09_7_point_0,7_coefficient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/fraktal_test/10_4_point_0,5_coefficient.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fraktal_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/fraktal_main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -11,70 +11,71 @@ class Point:
         self.y = y
 
 
-def random_point(a, A, ss):
-    k = len(a)
-    r = random.randint(1, k) - 1
-    return Point((A.x + ss * (a[r].x - A.x)), (A.y + ss * (a[r].y - A.y)))
+def random_point():
+    index = random.randint(1, len(start_points_list)) - 1
+    return Point((cur_point.x + step_coefficient * (start_points_list[index].x - cur_point.x)),
+                 (cur_point.y + step_coefficient * (start_points_list[index].y - cur_point.y)))
 
 
-def choice_coor(event):
-    global a, e1
-    c.delete(ALL)
-    a = []
-    s = e1.get()
-    lst = s.split()
+def choice_points_from_list(event):
+    global start_points_list
+    canvas.delete(ALL)
+    start_points_list = []
+    lst = entry_start_points.get().split()
     for i in range(len(lst) // 2):
-        a.append(Point(int(lst[2 * i]), int(lst[2 * i + 1])))
+        start_points_list.append(Point(int(lst[2 * i]), int(lst[2 * i + 1])))
 
 
-def choice_coor_2(event):
-    global a
+def add_point_from_click(event):
     x = event.x
     y = event.y
-    a.append(Point(x, y))
-    c.create_oval(x - 3, y - 3, x + 3, y + 3, fill='red', outline='black')
+    start_points_list.append(Point(x, y))
+    canvas.create_oval(x - 3, y - 3, x + 3, y + 3, fill='red', outline='black')
 
 
 def save_step(event):
-    global ss, e2
-    ss = float(e2.get())
+    global step_coefficient
+    step_coefficient = float(entry_step_coefficient.get())
 
 
-def draw2(event):
-    global fleeting, A, ss, a
+def draw(event):
+    global fleeting, cur_point
 
-    c.delete(fleeting)
+    canvas.delete(fleeting)
+
+    x, y = 0, 0
+
     for i in range(3000):
-        A = random_point(a, A, ss)
-        x = A.x
-        y = A.y
-        c.create_oval(x - 0.1, y - 0.1, x + 0.1, y + 0.1, fill='yellow', outline='black')
+        cur_point = random_point()
+        x, y = cur_point.x, cur_point.y
+        canvas.create_oval(x - 0.1, y - 0.1, x + 0.1, y + 0.1, fill='yellow', outline='black')
 
-    fleeting = c.create_oval(x - 2, y - 2, x + 2, y + 2, fill='red', outline='black')
+    fleeting = canvas.create_oval(x - 2, y - 2, x + 2, y + 2, fill='red', outline='black')
 
 
-A = Point(400, 201)
-a = []
-ss = 0.5
-e1 = Entry(root, width=20)
-e2 = Entry(root, width=20)
-b1 = Button(text="save coor")
-b2 = Button(text="draw")
-b3 = Button(text="save step")
-c = Canvas(root, width=800, height=600, bg='white')
+cur_point = Point(400, 201)
+start_points_list = []
+step_coefficient = 0.5
 
-fleeting = c.create_oval(399.5, 200.5, 400.5, 201.5, fill='red', outline='black')
+entry_start_points = Entry(root, width=20)
+entry_step_coefficient = Entry(root, width=20)
+button_save_points = Button(text="save points")
+button_draw = Button(text="draw")
+button_save_step = Button(text="save step")
+canvas = Canvas(root, width=800, height=600, bg='white')
 
-c.bind('<Button-1>', choice_coor_2)
-b1.bind('<Button-1>', choice_coor)
-b2.bind('<Button-1>', draw2)
-b3.bind('<Button-1>', save_step)
+fleeting = canvas.create_oval(399.5, 200.5, 400.5, 201.5, fill='red', outline='black')
 
-c.pack()
-e1.pack()
-b1.pack()
-e2.pack()
-b3.pack()
-b2.pack()
+canvas.bind('<Button-1>', add_point_from_click)
+button_save_points.bind('<Button-1>', choice_points_from_list)
+button_draw.bind('<Button-1>', draw)
+button_save_step.bind('<Button-1>', save_step)
+
+canvas.pack()
+entry_start_points.pack()
+button_save_points.pack()
+entry_step_coefficient.pack()
+button_save_step.pack()
+button_draw.pack()
 
 root.mainloop()
